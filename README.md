@@ -17,30 +17,30 @@ Pipeline ETL otomatis yang melakukan scraping artikel dari **Wired.com**, menyaj
 
 ```
 wired-pipeline/
-├── docker-compose.yml          # Semua services (PostgreSQL, FastAPI, Airflow)
-├── .env.example                # Template environment variables
+├── docker-compose.yml
+├── .env.example
 │
 ├── scraper/
-│   ├── scraper.py              # Selenium scraper (Wired.com)
+│   ├── scraper.py
 │   └── requirements.txt
 │
 ├── api/
-│   ├── main.py                 # FastAPI application
+│   ├── main.py
 │   ├── Dockerfile
 │   └── requirements.txt
 │
 ├── airflow/
 │   └── dags/
-│       └── wired_pipeline_dag.py   # Airflow DAG (ETL orchestration)
+│       └── wired_pipeline_dag.py
 │
 ├── init/
-│   ├── init_databases.sh       # Buat database PostgreSQL
-│   └── init.sql                # Schema, indexes, views, triggers
+│   ├── init_databases.sh
+│   └── init.sql
 │
-├── data/                       # Output JSON dari scraper (shared volume)
+├── data/
 │
 └── sql/
-    └── reporting_queries.sql   # Query analisis dan reporting
+    └── reporting_queries.sql
 ```
 
 ---
@@ -84,12 +84,6 @@ Services yang berjalan:
 1. Buka http://localhost:8080
 2. Login: `admin` / `admin`
 3. Aktifkan DAG `wired_pipeline`
-4. Klik tombol ▶ untuk trigger manual
-
-**Via CLI:**
-```bash
-docker exec wired-airflow-scheduler airflow dags trigger wired_pipeline
-```
 
 ### 5. Query Database
 
@@ -130,9 +124,6 @@ start
                           └── log_summary   Catat hasil ke pipeline_runs
                                 └── end
 ```
-
-**Jadwal:** Setiap 1 jam (`0 */1 * * *`)
-
 ---
 
 ## Database Schema

@@ -26,9 +26,9 @@ LIMIT 3;
 -- pada judul atau deskripsi
 
 SELECT
-    LEFT(title, 60)                                    AS title,
+    LEFT(title, 60) AS title,
     LEFT(REGEXP_REPLACE(author, '^By\s*', '', 'gi'), 30) AS author,
-    LEFT(description, 30)                             AS description
+    LEFT(description, 30) AS description
 FROM wired_articles
 WHERE
     title       ~* 'AI|Climate|Security'

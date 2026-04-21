@@ -131,7 +131,7 @@ start
                                 └── end
 ```
 
-**Jadwal:** Setiap 6 jam (`0 */6 * * *`)
+**Jadwal:** Setiap 1 jam (`0 */1 * * *`)
 
 ---
 

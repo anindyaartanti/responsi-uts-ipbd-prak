@@ -279,18 +279,6 @@ with DAG(
     catchup=False,
     max_active_runs=1,
     tags=["wired", "scraping", "etl"],
-    doc_md="""
-## Wired Pipeline DAG
-
-Pipeline ETL otomatis untuk mengambil artikel dari Wired.com.
-
-### Alur:
-1. **check_api** — Verifikasi FastAPI berjalan
-2. **fetch_articles** — GET /articles dari FastAPI
-3. **transform_articles** — Validasi & normalisasi data
-4. **load_to_database** — Upsert ke PostgreSQL `wired_articles`
-5. **log_summary** — Catat hasil ke `pipeline_runs`
-""",
 ) as dag:
 
     start = EmptyOperator(task_id="start")
